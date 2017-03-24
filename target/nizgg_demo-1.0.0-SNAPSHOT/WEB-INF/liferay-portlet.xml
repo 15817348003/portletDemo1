@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+	<!-- 测试中文乱码的portlet -->
+	<portlet>
+		<portlet-name>nizgg_demo</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+	</portlet>
+	
+	<!-- 显示monitor的portlet -->
+	<portlet>
+		<portlet-name>test</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>http://cdn.bootcss.com/extjs/4.2.1/resources/css/ext-all.css</header-portlet-css>
+		<header-portlet-javascript>http://cdn.bootcss.com/extjs/4.2.1/ext-debug.js</header-portlet-javascript>
+		<!-- <footer-portlet-javascript>/html/test/app.js</footer-portlet-javascript> -->
+		<!-- 该页面顶部加载的js文件 -->
+		<!-- <header-portlet-javascript>/js/jquery-3.1.1.min.js</header-portlet-javascript> -->
+		<css-class-wrapper>test-portlet</css-class-wrapper>
+	</portlet>
+	
+	<!-- 执行调度任务的portlet -->
+	<portlet>
+		<portlet-name>listener-demo</portlet-name>
+		<icon>/icon.png</icon>
+		<!-- 注册一个调度任务：以监听的方式 （注册的位置比较有讲究，在icon标签下面才不报错） -->
+		<!-- <scheduler-entry>
+			<scheduler-event-listener-class>com.sanmina.listener.DemoMessageListener</scheduler-event-listener-class>
+			<trigger>
+				<simple>
+					<simple-trigger-value>10</simple-trigger-value>
+					<time-unit>second</time-unit>
+				</simple>
+			</trigger>
+		</scheduler-entry> -->
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>
+			/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>listener-demo-portlet</css-class-wrapper>
+	</portlet>
+	
+	<!-- 可配置的portlet配置 -->
+	<portlet>
+		<portlet-name>config-demo</portlet-name>
+		<icon>/icon.png</icon>
+		
+		<!-- 配置模式的portlet的配置项
+			action-class指向该portlet配置是请求和响应的action类 -->
+		<configuration-action-class>com.sanmina.config.action.ConfigPortletDemoAction</configuration-action-class>
+		<!-- 为true时portlet可以在页面中显示多次，为false时只能显示一次
+			默认为false -->
+		<instanceable>true</instanceable>
+		
+		<!-- 为了避免属性冲突，在jsp页面的属性名前要加上<portlet:namespace> 
+			使用该标签，并设置标签值为true时则不用遵守此要求，默认为false-->
+		<!-- <requires-namespaced-parameters>false</requires-namespaced-parameters>   -->
+		
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>
+			/js/main.js
+		</footer-portlet-javascript>
+		<css-class-wrapper>config-demo-portlet</css-class-wrapper>
+	</portlet>
+	
+	
+	<portlet>
+		<portlet-name>edit-demo</portlet-name>
+		<icon>/icon.png</icon>
+		<header-portlet-css>/css/bootstrap.min.css</header-portlet-css>
+		<footer-portlet-javascript>https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.js</footer-portlet-javascript>
+		<footer-portlet-javascript>https://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js</footer-portlet-javascript>
+		<footer-portlet-javascript>/js/app.js</footer-portlet-javascript>
+		<footer-portlet-javascript>/js/controllers.js</footer-portlet-javascript>
+		<css-class-wrapper>edit-demo-portlet</css-class-wrapper>
+	</portlet>
+	<role-mapper>
+	<!-- 访问的权限 -->
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>
